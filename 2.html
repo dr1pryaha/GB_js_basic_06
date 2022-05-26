@@ -101,14 +101,17 @@
       const formControl = form.querySelectorAll(".form-control");
 
       form.addEventListener("submit", function (event) {
-        event.preventDefault();
         for (let el of formControl) {
-          !el.value ? el.classList.add("error") : el.classList.remove("error");
-          el.value = "";
+          if (!el.value) {
+            el.classList.add("error");
+            event.preventDefault();
+          } else {
+            el.classList.remove("error");
+          }
         }
       });
 
-      formControl.addEventListener("input", e => {
+      form.addEventListener("input", e => {
         !e.target.value
           ? e.target.classList.add("error")
           : e.target.classList.remove("error");

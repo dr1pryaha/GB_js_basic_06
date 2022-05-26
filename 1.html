@@ -43,7 +43,7 @@
       1. Установите всем элементам с классом "productName" размер шрифта 24px.
        */
       const productNameEl = document.querySelectorAll(".productName");
-      for (let el of productNameEl) {
+      for (const el of productNameEl) {
         el.style.fontSize = "24px";
       }
 
@@ -51,7 +51,7 @@
       2. Установите всем элементам с классом "product" внешний отступ справа 50px.
        */
       const productEl = document.querySelectorAll(".product");
-      for (let el of productEl) {
+      for (const el of productEl) {
         el.style.marginRight = "50px";
       }
 
@@ -59,17 +59,13 @@
       3. При клике на кнопку "В корзину" название кнопки должно поменяться на
       "Добавлено" и кнопка должна стать неактивной.
        */
-      const bodyClick = document.querySelectorAll("body");
-      for (let el of bodyClick) {
-        el.addEventListener("click", event => {
-          if (event.target.tagName !== "BUTTON") {
-            return;
-          } else {
-            event.target.innerHTML = "Добавлено";
-            event.target.setAttribute("disabled", true);
-          }
-        });
-      }
+      document.body.addEventListener("click", event => {
+        if (event.target.tagName !== "BUTTON") {
+          return;
+        }
+        event.target.innerHTML = "Добавлено";
+        event.target.disabled = true;
+      });
 
       /*
       4. Создайте полную (глубокую) копию элемента с классом product, измените в
@@ -90,7 +86,7 @@
       удален из html.
        */
       const productDel = document.querySelector(".product");
-      let timerId = setInterval(() => productDel.remove(".product"), 2000);
+      let timerId = setTimeout(() => productDel.remove(".product"), 2000);
     </script>
   </body>
 </html>

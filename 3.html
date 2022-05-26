@@ -43,9 +43,9 @@
       golden, также такой класс должен ставиться всем звездам до нее слева.
       */
       const stars = document.querySelectorAll(".fa-star");
-      for (let el of stars) {
+      for (const el of stars) {
         el.addEventListener("mouseover", e => {
-          let star = e.target;
+          const star = e.target;
           do {
             star.classList.add("golden");
             star = star.previousElementSibling;
@@ -57,9 +57,9 @@
       2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого задания должны быть удалены.
       */
       const stars2 = document.querySelectorAll(".fa-star");
-      for (let el of stars2) {
+      for (const el of stars2) {
         el.addEventListener("mouseout", e => {
-          let star = e.target;
+          const star = e.target;
           do {
             star.classList.remove("golden");
             star = star.previousElementSibling;
